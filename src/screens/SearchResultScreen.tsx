@@ -8,7 +8,7 @@ type Props = {
   navigation: NavigationProp<ReactNavigation.RootParamList>;
 };
 
-export const SearchResultScreen = ({ route, navigation }: Props) => {
+export const SearchResulScreen = ({ route, navigation }: Props) => {
   return (
     <WrapperScreen>
       <View style={styles.container}>
