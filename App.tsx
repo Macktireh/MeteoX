@@ -1,7 +1,5 @@
-import { HomeScreen } from '@/screens';
+import { Navigator } from "@/navigations";
 
 export default function App() {
-  return (
-    <HomeScreen />
-  );
+  return <Navigator />;
 }
