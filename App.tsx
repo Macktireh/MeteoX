@@ -1,7 +1,7 @@
-import { Text } from 'react-native';
+import { HomeScreen } from '@/screens';
 
 export default function App() {
   return (
-    <Text>Open up App.tsx to start working on your app!</Text>
+    <HomeScreen />
   );
 }
