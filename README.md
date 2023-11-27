@@ -42,7 +42,7 @@ Before you begin, ensure you have the following tools installed on your machine:
 4. Start the Expo development server:
 
    ```bash
-   expo start
+   npm start
    ```
 
 5. Open the Expo Go app on your mobile device and scan the QR code displayed in the terminal.
