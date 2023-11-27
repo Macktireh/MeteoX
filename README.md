@@ -6,7 +6,7 @@ MeteoX is a React Native app built with Expo that provides current weather infor
 
 - **Current Weather**: View the current weather conditions for your current location.
 - **Hourly Forecast**: Get detailed hourly weather forecasts.
-- **Daily Forecast**: Access a 7-day weather forecast.
+- **Daily Forecast**: Access a 3-day weather forecast.
 - **City Search**: Search for weather information in any city around the world.
 - **Persistent Storage**: Save your current location for quick access to weather updates.
 - **Expiration Control**: Option to set an expiration time for location-based weather data.
@@ -58,7 +58,7 @@ Before you begin, ensure you have the following tools installed on your machine:
     EXPO_PUBLIC_WEATHER_API_KEY=YOUR_API_KEY
     ```
 
-    Replace YOUR_API_KEY with the actual API key you obtained from https://www.weatherapi.com.
+    Replace `YOUR_API_KEY` with the actual API key you obtained from https://www.weatherapi.com.
 
 
 ## Usage
