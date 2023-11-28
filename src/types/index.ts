@@ -8,13 +8,13 @@ export type SearchLocation = {
   url: string;
 };
 
-export interface Weather {
+export type Weather = {
   location: Location;
   current: Current;
   forecast: Forecast;
 }
 
-export interface Location {
+export type Location = {
   name: string;
   region: string;
   country: string;
@@ -25,7 +25,7 @@ export interface Location {
   localtime: string;
 }
 
-export interface Current {
+export type Current = {
   last_updated_epoch: number;
   last_updated: string;
   temp_c: number;
@@ -51,17 +51,17 @@ export interface Current {
   gust_kph: number;
 }
 
-export interface Condition {
+export type Condition = {
   text: string;
   icon: string;
   code: number;
 }
 
-export interface Forecast {
+export type Forecast = {
   forecastday: Forecastday[];
 }
 
-export interface Forecastday {
+export type Forecastday = {
   date: string;
   date_epoch: number;
   day: Day;
@@ -69,7 +69,7 @@ export interface Forecastday {
   hour: Hour[];
 }
 
-export interface Day {
+export type Day = {
   maxtemp_c: number;
   maxtemp_f: number;
   mintemp_c: number;
@@ -92,7 +92,7 @@ export interface Day {
   uv: number;
 }
 
-export interface Astro {
+export type Astro = {
   sunrise: string;
   sunset: string;
   moonrise: string;
@@ -103,7 +103,7 @@ export interface Astro {
   is_sun_up: number;
 }
 
-export interface Hour {
+export type Hour = {
   time_epoch: number;
   time: string;
   temp_c: number;
