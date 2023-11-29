@@ -1,22 +1,24 @@
 import { WrapperScreen } from "@/screens/WrapperScreen";
 import { StyleSheet, Text, View, Platform } from "react-native";
 
-export const ListScreen = () => (
-  <WrapperScreen>
-    <View style={styles.container}>
-      <Text
-        style={{
-          fontSize: 48,
-          fontWeight: "bold",
-          textAlign: "center",
-          color: "red",
-        }}
-      >
-        List Screen
-      </Text>
-    </View>
-  </WrapperScreen>
-);
+export const ListScreen = () => {
+  return (
+    <WrapperScreen>
+      <View style={styles.container}>
+        <Text
+          style={{
+            fontSize: 48,
+            fontWeight: "bold",
+            textAlign: "center",
+            color: "red",
+          }}
+        >
+          List Screen
+        </Text>
+      </View>
+    </WrapperScreen>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
