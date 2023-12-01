@@ -36,7 +36,7 @@ Before you begin, ensure you have the following tools installed on your machine:
 3. Install dependencies:
 
    ```bash
-   npx expo install
+   npm install
    ```
 
 4. Start the Expo development server:
