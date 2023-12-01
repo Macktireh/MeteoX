@@ -24,7 +24,7 @@ Before you begin, ensure you have the following tools installed on your machine:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/MeteoX.git
+   git clone https://github.com/Macktireh/MeteoX.git
    ```
 
 2. Navigate to the project directory:
