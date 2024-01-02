@@ -1,6 +1,6 @@
-import { StatusBar } from "expo-status-bar";
 import React, { PropsWithChildren } from "react";
-import { Image, SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
+import { Image, SafeAreaView, StyleSheet, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 type PropsType = PropsWithChildren<{
   children: React.ReactNode;

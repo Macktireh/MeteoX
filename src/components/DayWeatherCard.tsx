@@ -1,7 +1,6 @@
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
-
-import { colors } from "@/constants/colors";
 import { Condition } from "@/types";
+import { colors } from "@/constants/colors";
 
 type Props = {
   day: string;
@@ -23,12 +22,10 @@ export const DayWeatherCard = ({
       style={StyleSheet.flatten([
         {
           flex: 1,
-          // display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
           width: Dimensions.get("window").width - 54,
-          // width: Dimensions.get("window").width - 66,
           padding: 10,
           borderRadius: 14,
           // backgroundColor: colors.red(0.5),
@@ -49,7 +46,7 @@ export const DayWeatherCard = ({
 
 const styles = StyleSheet.create({
   text: {
-    // flex: 1,
+    flex: 1,
     fontSize: 16,
     fontWeight: "bold",
     color: colors.white(0.8),

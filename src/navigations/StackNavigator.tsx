@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { BottomTabNavigator } from "@/navigations/BottomTabNavigator";
 
 import { RootStackParamList } from "@/types/navigationTyping";
-import { SearchScreen, SearchResulScreen } from "@/screens";
+import { SearchScreen, SearchResultScreen } from "@/screens";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -16,7 +16,7 @@ export const RootNavigator = () => {
       />
       <Stack.Screen
         name="SearchResult"
-        component={SearchResulScreen}
+        component={SearchResultScreen}
         options={{ headerShown: false, animation: "slide_from_left" }}
         initialParams={{ payload: null }}
       />
