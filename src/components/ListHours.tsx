@@ -9,7 +9,7 @@ type Props = {
   weather: Weather;
 };
 
-export const ListHours: React.FC<Props> = ({ weather }: Props) => {
+export const ListHours: React.FC<Props> = ({ weather }) => {
   return (
     <ScrollView
       horizontal
