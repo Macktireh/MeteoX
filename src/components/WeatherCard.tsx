@@ -27,9 +27,10 @@ const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const TRANSLATE_X_THRESHOLD = -SCREEN_WIDTH * 0.3;
 
 export const WeatherCard: React.FC<Props> = ({ weather, onDismiss }) => {
+  const navigation = useNavigation();
   const translateX = useSharedValue(0);
   const itemHeight = useSharedValue(LIST_ITEM_HEIGHT);
-  const marginBottom = useSharedValue(12);
+  const marginBottom = useSharedValue(15);
   const opacity = useSharedValue(1);
 
   const panGesture = useAnimatedGestureHandler<PanGestureHandlerGestureEvent>({
@@ -72,6 +73,20 @@ export const WeatherCard: React.FC<Props> = ({ weather, onDismiss }) => {
     };
   });
 
+  const onPress = () => {
+    navigation.navigate("SearchResult", {
+      payload: {
+        id: parseInt(weather.location.tz_id),
+        name: weather.location.name,
+        lat: weather.location.lat,
+        lon: weather.location.lon,
+        region: weather.location.region,
+        country: weather.location.country,
+        url: "",
+      },
+    });
+  };
+
   return (
     <Animated.View
       style={[
@@ -104,9 +119,29 @@ export const WeatherCard: React.FC<Props> = ({ weather, onDismiss }) => {
       </Animated.View>
       <PanGestureHandler onGestureEvent={panGesture}>
         <Animated.View
-          // onPress={() => navigation.navigate("Root")}
           style={[
             {
+              width: SCREEN_WIDTH - 30,
+              height: LIST_ITEM_HEIGHT,
+              borderRadius: 10,
+              // marginBottom: 12,
+              backgroundColor: colors.gray(),
+              // flexDirection: "column",
+              // // padding: 12,
+              // shadowOpacity: 0.08,
+              // shadowRadius: 10,
+              // shadowColor: `${colors.black(0.5)}`,
+              // shadowOffset: {
+              //   width: 0,
+              //   height: 20,
+              // },
+            },
+            animatedStyle,
+          ]}
+        >
+          <TouchableOpacity
+            onPress={onPress}
+            style={{
               width: SCREEN_WIDTH - 30,
               height: LIST_ITEM_HEIGHT,
               borderRadius: 10,
@@ -121,48 +156,53 @@ export const WeatherCard: React.FC<Props> = ({ weather, onDismiss }) => {
                 width: 0,
                 height: 20,
               },
-            },
-            animatedStyle,
-          ]}
-        >
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginBottom: 20,
             }}
           >
-            <View style={{ alignItems: "flex-start" }}>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginBottom: 20,
+              }}
+            >
+              <View style={{ alignItems: "flex-start" }}>
+                <Text
+                  style={{ fontSize: 16, fontWeight: "bold", color: "white" }}
+                >
+                  {weather.location.name}
+                </Text>
+                <Text style={{ fontSize: 14, color: "white" }}>
+                  {weather.location.country}
+                </Text>
+              </View>
               <Text
-                style={{ fontSize: 16, fontWeight: "bold", color: "white" }}
+                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
               >
-                {weather.location.name}
-              </Text>
-              <Text style={{ fontSize: 14, color: "white" }}>
-                {weather.location.country}
+                {Math.round(weather.current.temp_c)}&#176;
               </Text>
             </View>
-            <Text style={{ fontSize: 20, fontWeight: "bold", color: "white" }}>
-              {weather.current.temp_c}&#176;
-            </Text>
-          </View>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-            }}
-          >
-            <Text style={{ fontSize: 14, fontWeight: "bold", color: "white" }}>
-              {weather.current.condition.text}
-            </Text>
-            <Text style={{ fontSize: 14, color: "white" }}>
-              Max. {weather.forecast.forecastday[0].day.maxtemp_c}&#176; Min.{" "}
-              {weather.forecast.forecastday[0].day.mintemp_c}&#176;
-            </Text>
-          </View>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                alignItems: "flex-end",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text
+                style={{ fontSize: 14, fontWeight: "bold", color: "white" }}
+              >
+                {weather.current.condition.text}
+              </Text>
+              <Text style={{ fontSize: 14, color: "white" }}>
+                Max. {Math.round(weather.forecast.forecastday[0].day.maxtemp_c)}
+                &#176; Min.{" "}
+                {Math.round(weather.forecast.forecastday[0].day.mintemp_c)}
+                &#176;
+              </Text>
+            </View>
+          </TouchableOpacity>
         </Animated.View>
       </PanGestureHandler>
     </Animated.View>

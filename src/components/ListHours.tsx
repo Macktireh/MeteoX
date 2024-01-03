@@ -1,9 +1,9 @@
 import { ScrollView, Dimensions } from "react-native";
 
 import { colors } from "@/constants/colors";
-import { HourWeatherCard } from "@/components/HourWeatherCard";
-import { Weather } from "@/types";
 import { organizeWeatherAllHourData } from "@/utils";
+import { Weather } from "@/types";
+import { HourWeatherCard } from "@/components/HourWeatherCard";
 
 type Props = {
   weather: Weather;
@@ -22,14 +22,15 @@ export const ListHours: React.FC<Props> = ({ weather }) => {
         flexDirection: "row",
         paddingHorizontal: 12,
         backgroundColor: colors.gray(0.5),
-        borderRadius: 20,
+        borderRadius: 16,
         width: Dimensions.get("window").width - 30,
         height: 150,
       }}
     >
       {organizeWeatherAllHourData(
         weather.forecast.forecastday[0].hour,
-        weather.forecast.forecastday[1].hour
+        weather.forecast.forecastday[1].hour,
+        weather.current.last_updated
       )
         .slice(0, 25)
         .map((hour, index) => (

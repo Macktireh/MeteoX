@@ -1,4 +1,4 @@
-import { Condition, Forecast, Forecastday, Hour } from "@/types";
+import { Condition, Hour } from "@/types";
 
 type HourData = {
   time: string;
@@ -15,12 +15,12 @@ type DayData = {
   hours: HourData[];
 };
 
-export default function organizeWeatherHourData(data: Hour[]): HourData[] {
+export default function organizeWeatherHourData(data: Hour[], currentDateTime: string): HourData[] {
   const organizedData: HourData[] = [];
 
   let nowAdded = false;
   // const currentHour = 7;
-  const currentHour = new Date().getHours();
+  const currentHour = new Date(currentDateTime).getHours();
 
   for (const entry of data) {
     const hour = new Date(entry.time).getHours();
@@ -44,9 +44,9 @@ export default function organizeWeatherHourData(data: Hour[]): HourData[] {
   return organizedData;
 }
 
-export function organizeWeatherAllHourData(data1: Hour[], data2: Hour[]): HourData[] {
-  const hours = organizeWeatherHourData(data1);
-  
+export function organizeWeatherAllHourData(data1: Hour[], data2: Hour[], currentDateTime: string): HourData[] {
+  const hours = organizeWeatherHourData(data1, currentDateTime);
+
   for (const entry of data2) {
     const hour = new Date(entry.time).getHours();
     hours.push({
@@ -62,7 +62,6 @@ export function getDayNameFromDate(dateString: string, locale: string = "en"): s
   const date = new Date(dateString);
   const options: Intl.DateTimeFormatOptions = { weekday: 'long' };
   const dayName = date.toLocaleDateString(locale === "en" ? "en-US" : "fr-FR", options);
-  // console.log(dayName);
   if (locale === "en") {
     return dayName.split(',')[0];
   } else {
@@ -71,5 +70,5 @@ export function getDayNameFromDate(dateString: string, locale: string = "en"): s
 }
 
 export const isFunction = (functionToCheck: any) => {
-	return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+  return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
 }

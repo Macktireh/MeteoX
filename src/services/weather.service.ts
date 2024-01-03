@@ -3,13 +3,13 @@ import { SearchLocation, Weather } from "@/types";
 const apiKey = process.env.EXPO_PUBLIC_WEATHER_API_KEY;
 
 export class WeatherService {
-   static async fetchLocationByCoordinates(lat: number, lon: number): Promise<SearchLocation[]> {
+   static async fetchLocationByCoordinates(lat: number, lon: number, lang: string = "en"): Promise<SearchLocation[]> {
     if (!apiKey) {
       throw new Error('API key is not defined');
     }
 
      try {
-       const response = await fetch(`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${lat},${lon}`);
+       const response = await fetch(`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${lat},${lon}&lang=${lang}`);
        if (!response.ok) {
          throw new Error('Failed to fetch location data');
        }
@@ -19,13 +19,13 @@ export class WeatherService {
      }
    }
 
-  static async fetchLocationByCity(city: string): Promise<SearchLocation[]> {
+  static async fetchLocationByCity(city: string, lang: string = "en"): Promise<SearchLocation[]> {
     if (!apiKey) {
       throw new Error('API key is not defined');
     }
 
     try {
-      const response = await fetch(`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${city}`);
+      const response = await fetch(`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=${city}&lang=${lang}`);
       if (!response.ok) {
         throw new Error('API request failed');
       }
@@ -35,13 +35,13 @@ export class WeatherService {
     }
   }
 
-static async fetchWeatherForecastByCoordinates(lat: number, lon: number, days: number = 3): Promise<Weather> {
+static async fetchWeatherForecastByCoordinates(lat: number, lon: number, days: number = 3, lang: string = "en"): Promise<Weather> {
   if (!apiKey) {
     throw new Error('API key is not defined');
   }
 
   try {
-    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=${days}`);
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=${days}&lang=${lang}`);
     if (!response.ok) {
       throw new Error('Failed to fetch weather forecast');
     }
@@ -51,13 +51,13 @@ static async fetchWeatherForecastByCoordinates(lat: number, lon: number, days: n
   }
 }
 
-  static async fetchWeatherForecastByCity(city: string, days: number = 3): Promise<Weather> {
+  static async fetchWeatherForecastByCity(city: string, days: number = 3, lang: string = "en"): Promise<Weather> {
     if (!apiKey) {
       throw new Error('API key is not defined');
     }
 
     try {
-      const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=${days}`);
+      const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=${days}&lang=${lang}`);
       if (!response.ok) {
         throw new Error('Failed to fetch weather forecast');
       }

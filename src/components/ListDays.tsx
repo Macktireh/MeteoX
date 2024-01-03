@@ -21,7 +21,7 @@ export const ListDays: React.FC<Props> = ({ weather }: Props) => {
         flexDirection: "row",
         paddingHorizontal: 12,
         backgroundColor: colors.gray(0.5),
-        borderRadius: 20,
+        borderRadius: 16,
         width: Dimensions.get("window").width - 30,
         height: 210,
         marginTop: 16,

@@ -25,7 +25,6 @@ export const BottomTabNavigator = () => {
             paddingTop: 2,
             height: 46,
             backgroundColor: colors.bg(),
-            // borderTopColor: colors[colorScheme].grey[300],
           },
           null,
         ],
@@ -36,9 +35,6 @@ export const BottomTabNavigator = () => {
           switch (rn) {
             case ScreensName.Home:
               iconName = focused ? "home" : "home-outline";
-              break;
-            case ScreensName.Search:
-              iconName = focused ? "search" : "search-outline";
               break;
             case ScreensName.List:
               iconName = focused ? "list" : "list-outline";
