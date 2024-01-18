@@ -52,7 +52,7 @@ Before you begin, ensure you have the following tools installed on your machine:
 
 1. Get your API key: Visit https://www.weatherapi.com and register for your API key.
 
-2. Rename the `.env.example` file to `.env` and add your API key :
+2. Rename the `.env.example` file to `.env` and add your API key:
 
     ```bash
     EXPO_PUBLIC_WEATHER_API_KEY=YOUR_API_KEY
