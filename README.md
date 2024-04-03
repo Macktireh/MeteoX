@@ -11,6 +11,15 @@ MeteoX is a React Native app built with Expo that provides current weather infor
 - **Persistent Storage**: Save your current location for quick access to weather updates.
 - **Expiration Control**: Option to set an expiration time for location-based weather data.
 
+## Screenshot
+
+<p align="center">
+  <img src="screenshot/1.jpg" alt="Home screen" height=400>
+  <img src="screenshot/2.jpg" alt="Search screen" height=400>
+  <img src="screenshot/3.jpg" alt="List screen" height=400>
+  <img src="screenshot/4.jpg" alt="Detail screen" height=400>
+</p>
+
 ## Prerequisites
 
 Before you begin, ensure you have the following tools installed on your machine:
