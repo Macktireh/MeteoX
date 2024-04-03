@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { Dimensions, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, Text, Pressable, View } from "react-native";
 import {
   PanGestureHandler,
   PanGestureHandlerGestureEvent,
@@ -139,7 +139,7 @@ export const WeatherCard: React.FC<Props> = ({ weather, onDismiss }) => {
             animatedStyle,
           ]}
         >
-          <TouchableOpacity
+          <Pressable
             onPress={onPress}
             style={{
               width: SCREEN_WIDTH - 30,
@@ -202,7 +202,7 @@ export const WeatherCard: React.FC<Props> = ({ weather, onDismiss }) => {
                 &#176;
               </Text>
             </View>
-          </TouchableOpacity>
+          </Pressable>
         </Animated.View>
       </PanGestureHandler>
     </Animated.View>
